@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AuthViewController.swift
 //  Oblique
 //
 //  Created by Максим Алексеев on 15.10.2020.
@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import SnapKit
 
-class ViewController: UIViewController {
+class AuthViewController: UIViewController {
 
+    // MARK:- Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
-
 
 }
 
