@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		88459FA4253882D10075EBF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88459FA3253882D10075EBF7 /* AppDelegate.swift */; };
 		88459FA6253882D10075EBF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88459FA5253882D10075EBF7 /* SceneDelegate.swift */; };
-		88459FA8253882D10075EBF7 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88459FA7253882D10075EBF7 /* AuthViewController.swift */; };
 		88459FAD253882D50075EBF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88459FAC253882D50075EBF7 /* Assets.xcassets */; };
 		88459FB0253882D50075EBF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88459FAE253882D50075EBF7 /* LaunchScreen.storyboard */; };
 		88459FBA2538892C0075EBF7 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88459FB92538892C0075EBF7 /* SnapKit.framework */; };
 		88459FBB2538892C0075EBF7 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88459FB92538892C0075EBF7 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		88BEFFE625388B4C00266DD2 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BEFFE525388B4C00266DD2 /* UIView+Extension.swift */; };
+		88BEFFE825388C5B00266DD2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BEFFE725388C5B00266DD2 /* UIColor+Extension.swift */; };
+		88C561C1253B1FD600DA701D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C561C0253B1FD600DA701D /* AuthViewController.swift */; };
+		88C561C7253B24A000DA701D /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C561C6253B24A000DA701D /* AuthView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,11 +37,14 @@
 		88459FA0253882D10075EBF7 /* Oblique.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oblique.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88459FA3253882D10075EBF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88459FA5253882D10075EBF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		88459FA7253882D10075EBF7 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		88459FAC253882D50075EBF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88459FAF253882D50075EBF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88459FB1253882D50075EBF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88459FB92538892C0075EBF7 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		88BEFFE525388B4C00266DD2 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		88BEFFE725388C5B00266DD2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		88C561C0253B1FD600DA701D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		88C561C6253B24A000DA701D /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		882077042538943B002CECB3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				88C561C0253B1FD600DA701D /* AuthViewController.swift */,
+				88C561C6253B24A000DA701D /* AuthView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		88459F97253882D10075EBF7 = {
 			isa = PBXGroup;
 			children = (
@@ -73,8 +88,9 @@
 		88459FA2253882D10075EBF7 /* Oblique */ = {
 			isa = PBXGroup;
 			children = (
+				88BEFFE425388AE600266DD2 /* Extensions */,
 				88459FB7253888110075EBF7 /* Support files */,
-				88459FA7253882D10075EBF7 /* AuthViewController.swift */,
+				88BEFFE325388ADF00266DD2 /* Auth */,
 				88459FB1253882D50075EBF7 /* Info.plist */,
 			);
 			path = Oblique;
@@ -97,6 +113,23 @@
 				88459FB92538892C0075EBF7 /* SnapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		88BEFFE325388ADF00266DD2 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				882077042538943B002CECB3 /* View */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		88BEFFE425388AE600266DD2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				88BEFFE525388B4C00266DD2 /* UIView+Extension.swift */,
+				88BEFFE725388C5B00266DD2 /* UIColor+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,9 +225,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88459FA8253882D10075EBF7 /* AuthViewController.swift in Sources */,
 				88459FA4253882D10075EBF7 /* AppDelegate.swift in Sources */,
+				88BEFFE625388B4C00266DD2 /* UIView+Extension.swift in Sources */,
+				88C561C7253B24A000DA701D /* AuthView.swift in Sources */,
+				88C561C1253B1FD600DA701D /* AuthViewController.swift in Sources */,
 				88459FA6253882D10075EBF7 /* SceneDelegate.swift in Sources */,
+				88BEFFE825388C5B00266DD2 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
