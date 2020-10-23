@@ -23,8 +23,12 @@ class AuthView: UIView {
         let textField = UITextField()
         textField.backgroundColor = .lightFieldGray
         textField.font = .systemFont(ofSize: 18)
+        textField.textColor = .textGray
+//        textField.placeholder = "Your name"
+        textField.attributedPlaceholder = NSAttributedString(string: "Your name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.textGray])
         textField.textContentType = .name
         textField.borderStyle = .none
+        textField.setPlaceholderPadding(10)
         return textField
     }()
     
@@ -32,8 +36,13 @@ class AuthView: UIView {
         let textField = UITextField()
         textField.backgroundColor = .lightFieldGray
         textField.font = .systemFont(ofSize: 18)
+        textField.textColor = .textGray
+//        textField.placeholder = "Your email"
+        textField.attributedPlaceholder = NSAttributedString(string: "Your email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.textGray])
+        textField.font = .systemFont(ofSize: 18)
         textField.textContentType = .emailAddress
         textField.borderStyle = .none
+        textField.setPlaceholderPadding(10)
         return textField
     }()
     
@@ -41,8 +50,13 @@ class AuthView: UIView {
         let textField = UITextField()
         textField.backgroundColor = .lightFieldGray
         textField.font = .systemFont(ofSize: 18)
+        textField.textColor = .textGray
+//        textField.placeholder = "Confirm password"
+        textField.attributedPlaceholder = NSAttributedString(string: "Confirm password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.textGray])
+        textField.font = .systemFont(ofSize: 18)
         textField.textContentType = .password
         textField.borderStyle = .none
+        textField.setPlaceholderPadding(10)
         return textField
     }()
     
@@ -50,8 +64,13 @@ class AuthView: UIView {
         let textField = UITextField()
         textField.backgroundColor = .lightFieldGray
         textField.font = .systemFont(ofSize: 18)
+        textField.textColor = .textGray
+//        textField.placeholder = "Your name"
+        textField.attributedPlaceholder = NSAttributedString(string: "Your name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.textGray])
+        textField.font = .systemFont(ofSize: 18)
         textField.textContentType = .password
         textField.borderStyle = .none
+        textField.setPlaceholderPadding(10)
         return textField
     }()
     
@@ -60,7 +79,6 @@ class AuthView: UIView {
     let signButton: UIButton = {
         let button = UIButton()
         button.setTitle("Sign Up", for: .normal)
-//        button.backgroundColor = .mainPurple
         return button
     }()
     
@@ -89,8 +107,7 @@ class AuthView: UIView {
         iconImageView.snp.makeConstraints { make in
             make.centerX.equalTo(self)
             make.bottom.equalTo(fieldsStackView.snp.top).offset(-45)
-            make.width.equalTo(175)
-            make.height.equalTo(182)
+//            make.top.equalTo(self).offset(50)
         }
     }
     
@@ -103,16 +120,12 @@ class AuthView: UIView {
         fieldsStackView.snp.makeConstraints { make in
             make.leading.equalTo(self).offset(25)
             make.trailing.equalTo(self).offset(-25)
-            //            make.top.equalTo(iconImageView.snp.bottom).offset(50)
             make.height.equalTo(230)
             make.bottom.equalTo(signButton.snp.top).offset(-40)
         }
     }
     
     private func configureSignButton() {
-        signButton.layer.cornerRadius = 28
-//        signButton.addGradient(colors: [.mainPurple, .accentPurple])
-        
         addSubview(signButton)
         signButton.snp.makeConstraints { make in
             make.leading.equalTo(self).offset(25)
