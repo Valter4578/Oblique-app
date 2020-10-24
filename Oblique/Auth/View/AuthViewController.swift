@@ -9,6 +9,8 @@
 import UIKit
 
 class AuthViewController: UIViewController {
+    // MARK:- Dependencies
+    
     // MARK:- Properties
     
     // MARK:- Lifecycle
@@ -21,31 +23,16 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .mainBlack
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
     }
-    // MARK:- Configure
-//    private func configureSignButton() {
-//        view.addSubview(signButton)
-//        signButton.snp.makeConstraints {
-//            $0.leading.equalTo(view).offset(20)
-//            $0.trailing.equalTo(view).offset(20)
-//            $0.height.equalTo(53)
-//        }
-//    }
-//
-//    private func configureSignOption() {
-//        view.addSubview(signOptionButton)
-//
-//        signOptionButton.snp.makeConstraints {
-//            $0.bottom.equalTo(view).offset(50)
-//            $0.trailing
-//        }
-//    }
+    
+    @objc func didPressSignButton() {
+        
+    }
 }
 
 

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8818036C2543109000BDD758 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8818036B2543109000BDD758 /* NetworkService.swift */; };
+		8818036E254312B400BDD758 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8818036D254312B400BDD758 /* Alamofire.framework */; };
+		8818036F254312B400BDD758 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8818036D254312B400BDD758 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8820A171253F481A00F15C34 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8820A170253F481A00F15C34 /* UITextField+Extension.swift */; };
 		88459FA4253882D10075EBF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88459FA3253882D10075EBF7 /* AppDelegate.swift */; };
 		88459FA6253882D10075EBF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88459FA5253882D10075EBF7 /* SceneDelegate.swift */; };
@@ -28,6 +31,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				88459FBB2538892C0075EBF7 /* SnapKit.framework in Embed Frameworks */,
+				8818036F254312B400BDD758 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -35,6 +39,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8818036B2543109000BDD758 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		8818036D254312B400BDD758 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		8820A170253F481A00F15C34 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		88459FA0253882D10075EBF7 /* Oblique.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oblique.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88459FA3253882D10075EBF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,12 +61,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				88459FBA2538892C0075EBF7 /* SnapKit.framework in Frameworks */,
+				8818036E254312B400BDD758 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8818036A2543106C00BDD758 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8818036B2543109000BDD758 /* NetworkService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		882077042538943B002CECB3 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +105,7 @@
 		88459FA2253882D10075EBF7 /* Oblique */ = {
 			isa = PBXGroup;
 			children = (
+				8818036A2543106C00BDD758 /* Service */,
 				88BEFFE425388AE600266DD2 /* Extensions */,
 				88459FB7253888110075EBF7 /* Support files */,
 				88BEFFE325388ADF00266DD2 /* Auth */,
@@ -112,6 +128,7 @@
 		88459FB82538892C0075EBF7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8818036D254312B400BDD758 /* Alamofire.framework */,
 				88459FB92538892C0075EBF7 /* SnapKit.framework */,
 			);
 			name = Frameworks;
@@ -212,6 +229,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -230,6 +248,7 @@
 			files = (
 				88459FA4253882D10075EBF7 /* AppDelegate.swift in Sources */,
 				88BEFFE625388B4C00266DD2 /* UIView+Extension.swift in Sources */,
+				8818036C2543109000BDD758 /* NetworkService.swift in Sources */,
 				8820A171253F481A00F15C34 /* UITextField+Extension.swift in Sources */,
 				88C561C7253B24A000DA701D /* AuthView.swift in Sources */,
 				88C561C1253B1FD600DA701D /* AuthViewController.swift in Sources */,

@@ -79,6 +79,7 @@ class AuthView: UIView {
     let signButton: UIButton = {
         let button = UIButton()
         button.setTitle("Sign Up", for: .normal)
+        button.addTarget(self, action: #selector(AuthViewController.didPressSignButton), for: .touchUpInside)
         return button
     }()
     
