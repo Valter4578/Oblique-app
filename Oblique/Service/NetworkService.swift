@@ -43,7 +43,7 @@ class NetworkService {
             "name": name
         ]
         
-        AF.request("\(baseUrl)/signin", method: .post, parameters: params)
+        AF.request("\(baseUrl)/signup", method: .post, parameters: params)
             .responseJSON { response in
                 print(response)
                 

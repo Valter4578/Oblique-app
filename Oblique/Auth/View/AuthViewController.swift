@@ -11,11 +11,12 @@ import SnapKit
 
 class AuthViewController: UIViewController {
     // MARK:- Dependencies
-    
+    var presenter: AuthPresenter! 
     // MARK:- Properties
     
     // MARK:- Constraints references
     var signButtonBottomConstraint: Constraint? = nil
+    
     // MARK:- Views
     let iconImageView: UIImageView = {
         let imageView = UIImageView()
@@ -40,7 +41,6 @@ class AuthViewController: UIViewController {
         let textField = UITextField()
         textField.backgroundColor = .lightFieldGray
         textField.textColor = .textGray
-        //        textField.placeholder = "Your email"
         textField.attributedPlaceholder = NSAttributedString(string: "Your email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.textGray])
         textField.font = .systemFont(ofSize: 18)
         textField.textContentType = .emailAddress
@@ -99,6 +99,7 @@ class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureViews()
         hideKeyboardByTapAround()
         
@@ -113,7 +114,15 @@ class AuthViewController: UIViewController {
     
     // MARK:- Selectors
     @objc func didPressSignButton() {
+        guard let emailText = emailTextField.text,
+              let passwordText = passwordTextField.text,
+              let confirmPassText = confirmPasswordTextField.text,
+              let nameText = nameTextField.text
+        else { return }
         
+        presenter.signUp(email: emailText, password: passwordText, confirmPass: confirmPassText, name: nameText) { isSuccess in
+            print(isSuccess)
+        }
     }
     
     @objc func keyboardWillShow( notification: Notification) {
@@ -165,6 +174,7 @@ class AuthViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapAround))
         view.addGestureRecognizer(tap)
     }
+    
     
     // MARK:- Configures
     func configureViews() {
