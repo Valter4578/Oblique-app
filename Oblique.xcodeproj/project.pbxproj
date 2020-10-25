@@ -20,7 +20,6 @@
 		88BEFFE625388B4C00266DD2 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BEFFE525388B4C00266DD2 /* UIView+Extension.swift */; };
 		88BEFFE825388C5B00266DD2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BEFFE725388C5B00266DD2 /* UIColor+Extension.swift */; };
 		88C561C1253B1FD600DA701D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C561C0253B1FD600DA701D /* AuthViewController.swift */; };
-		88C561C7253B24A000DA701D /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C561C6253B24A000DA701D /* AuthView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,7 +51,6 @@
 		88BEFFE525388B4C00266DD2 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		88BEFFE725388C5B00266DD2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		88C561C0253B1FD600DA701D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		88C561C6253B24A000DA701D /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				88C561C0253B1FD600DA701D /* AuthViewController.swift */,
-				88C561C6253B24A000DA701D /* AuthView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -250,7 +247,6 @@
 				88BEFFE625388B4C00266DD2 /* UIView+Extension.swift in Sources */,
 				8818036C2543109000BDD758 /* NetworkService.swift in Sources */,
 				8820A171253F481A00F15C34 /* UITextField+Extension.swift in Sources */,
-				88C561C7253B24A000DA701D /* AuthView.swift in Sources */,
 				88C561C1253B1FD600DA701D /* AuthViewController.swift in Sources */,
 				88459FA6253882D10075EBF7 /* SceneDelegate.swift in Sources */,
 				88BEFFE825388C5B00266DD2 /* UIColor+Extension.swift in Sources */,
