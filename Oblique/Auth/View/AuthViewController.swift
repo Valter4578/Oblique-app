@@ -9,10 +9,20 @@
 import UIKit
 import SnapKit
 
+enum AuthState {
+    case signup
+    case signin
+}
+
 class AuthViewController: UIViewController {
     // MARK:- Dependencies
     var presenter: AuthPresenter! 
     // MARK:- Properties
+    var authState: AuthState? = .signup {
+        didSet {
+            didChangeState()
+        }
+    }
     
     // MARK:- Constraints references
     var signButtonBottomConstraint: Constraint? = nil
@@ -29,6 +39,7 @@ class AuthViewController: UIViewController {
         let textField = UITextField()
         textField.backgroundColor = .lightFieldGray
         textField.font = .systemFont(ofSize: 18)
+        textField.textColor = .white
         textField.textColor = .textGray
         textField.attributedPlaceholder = NSAttributedString(string: "Your name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.textGray])
         textField.textContentType = .name
@@ -78,9 +89,9 @@ class AuthViewController: UIViewController {
     let signButton: UIButton = {
         let button = UIButton()
         button.setTitle("Sign Up", for: .normal)
-        button.addTarget(self, action: #selector(didPressSignButton), for: .touchUpInside)
         button.layer.cornerRadius = 20
         button.backgroundColor = .mainPurple
+        button.addTarget(self, action: #selector(didPressSignButton), for: .touchUpInside)
         return button
     }()
     
@@ -92,11 +103,11 @@ class AuthViewController: UIViewController {
         let attributedString = NSAttributedString(string: "Sign in", attributes: [NSAttributedString.Key.foregroundColor: UIColor.mainPurple])
         attributedTitle.append(attributedString)
         label.attributedText = attributedTitle
+        label.isUserInteractionEnabled = true
         return label
     }()
     
     // MARK:- Lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -115,13 +126,19 @@ class AuthViewController: UIViewController {
     // MARK:- Selectors
     @objc func didPressSignButton() {
         guard let emailText = emailTextField.text,
-              let passwordText = passwordTextField.text,
-              let confirmPassText = confirmPasswordTextField.text,
-              let nameText = nameTextField.text
-        else { return }
+             let passwordText = passwordTextField.text
+            else { return }
         
-        presenter.signUp(email: emailText, password: passwordText, confirmPass: confirmPassText, name: nameText) { isSuccess in
-            print(isSuccess)
+        switch authState {
+        case .signin:
+            presenter.signIn(email: emailText, password: passwordText)
+        case .signup:
+            guard let confirmPassText = confirmPasswordTextField.text,
+                  let nameText = nameTextField.text
+                else { return }
+            presenter.signUp(email: emailText, password: passwordText, confirmPass: confirmPassText, name: nameText)
+        case .none:
+            break
         }
     }
     
@@ -169,6 +186,58 @@ class AuthViewController: UIViewController {
         view.endEditing(true)
     }
     
+    @objc func didTapSignOptionLabel() {
+        switch authState {
+        case .signup:
+            authState = .signin
+        case .signin:
+            authState = .signup
+        default:
+            break
+        }
+    }
+    
+    // MARK:- Public methods
+    func didChangeState() {
+        switch authState {
+        case .signin:
+            signButton.setTitle("Sign In", for: .normal)
+            
+            let attributedTitle = NSMutableAttributedString(string: "Don't have an account? ", attributes:
+                [NSAttributedString.Key.font: UIFont.systemFont(ofSize: (14)),
+                 NSAttributedString.Key.foregroundColor: UIColor.white])
+            let attributedString = NSAttributedString(string: "Sign up", attributes: [NSAttributedString.Key.foregroundColor: UIColor.mainPurple])
+            attributedTitle.append(attributedString)
+            signOptionLabel.attributedText = attributedTitle
+            
+            UIView.animate(withDuration: 0.25, animations: {
+                self.nameTextField.alpha = 0
+                self.confirmPasswordTextField.alpha = 0
+            }) { _ in
+                self.fieldsStackView.removeArrangedSubview(self.nameTextField)
+                self.fieldsStackView.removeArrangedSubview(self.confirmPasswordTextField)
+                self.nameTextField.removeFromSuperview()
+                self.confirmPasswordTextField.removeFromSuperview()
+                
+                self.fieldsStackView.snp.makeConstraints { make in
+                    make.leading.equalTo(self.view).offset(25)
+                    make.trailing.equalTo(self.view).offset(-25)
+                    make.height.equalTo(100)
+                    make.bottom.equalTo(self.signButton.snp.top).offset(-40)
+                }
+            }
+            
+        default:
+            break
+        }
+    }
+    
+    func didAuthentificate(token: String?) {
+        if let _ = token {
+            
+        }
+    }
+    
     // MARK:- Private methods
     private func hideKeyboardByTapAround() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapAround))
@@ -190,7 +259,6 @@ class AuthViewController: UIViewController {
         iconImageView.snp.makeConstraints { make in
             make.centerX.equalTo(view)
             make.bottom.equalTo(fieldsStackView.snp.top).offset(-45)
-            //            make.9top.equalTo(self).offset(50)
         }
     }
     
@@ -226,6 +294,9 @@ class AuthViewController: UIViewController {
             make.bottom.equalTo(view).offset(-50)
             make.centerX.equalTo(view)
         }
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapSignOptionLabel))
+        signOptionLabel.addGestureRecognizer(gestureRecognizer)
     }
     
     // MARK:- Inits
