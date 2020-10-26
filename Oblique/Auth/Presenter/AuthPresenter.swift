@@ -12,25 +12,38 @@ class AuthPresenter {
     // MARK:- Dependencies
     var view: AuthViewController! 
     var networkService: NetworkService!
+    
     // MARK:- Properties
     
     // MARK:- Methods
-    func signUp(email: String, password: String, confirmPass: String, name: String, completionHandler: @escaping (Bool) -> Void) {
-        guard validateField(email: email, password: password, confirmPass: confirmPass) else {
-            completionHandler(false)
-            return
-        }
+    func signUp(email: String, password: String, confirmPass: String, name: String) {
+        guard validateField(email: email, password: password, confirmPass: confirmPass) else { return }
         
         networkService.signUp(email: email, password: password, name: name) { result in
             switch result {
-            case .failure(let error):
-                completionHandler(false)
+            case .failure(let _):
+                self.view.didAuthentificate(token: nil)
             case .success(let token):
                 UserDefaults.standard.set(token, forKey: "token")
-                completionHandler(true)
+                self.view.didAuthentificate(token: token)
             }
         }
     }
+    
+    func signIn(email: String, password: String) {
+        guard validateField(email: email, password: password) else { return }
+        
+        networkService.signIn(email: email, password: password) { result in
+            switch result {
+            case .failure(let _):
+                self.view.didAuthentificate(token: nil)
+            case .success(let token):
+                UserDefaults.standard.set(token, forKey: "token")
+                self.view.didAuthentificate(token: token)
+            }
+        }
+    }
+    
     // MARK:- Private methods
     private func validateField(email: String, password: String, confirmPass: String? = nil) -> Bool {
         // Validate email adress
