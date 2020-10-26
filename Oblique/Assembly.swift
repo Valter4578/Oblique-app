@@ -1,15 +1,19 @@
 //
-//  AuthAssembly.swift
+//  Assembly.swift
 //  Oblique
 //
-//  Created by Максим Алексеев on 25.10.2020.
+//  Created by Максим Алексеев on 26.10.2020.
 //  Copyright © 2020 Максим Алексеев. All rights reserved.
 //
 
 import Foundation
 
-class AuthAssembly {
-    class func configureAuthModule() -> AuthViewController {
+protocol AssemblyBuilder {
+    func configureAuthModule(router: Router?) -> AuthViewController
+}
+
+class Assembly: AssemblyBuilder {    
+    func configureAuthModule(router: Router?) -> AuthViewController {
         let viewController = AuthViewController()
         let presenter = AuthPresenter()
         viewController.presenter = presenter

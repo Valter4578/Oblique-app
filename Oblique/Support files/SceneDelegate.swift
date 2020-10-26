@@ -17,7 +17,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = AuthAssembly.configureAuthModule()
+        let assembly = Assembly()
+        window?.rootViewController = assembly.configureAuthModule(router: nil)
         window?.makeKeyAndVisible()
     }
     

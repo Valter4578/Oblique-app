@@ -18,7 +18,8 @@
 		88459FBA2538892C0075EBF7 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88459FB92538892C0075EBF7 /* SnapKit.framework */; };
 		88459FBB2538892C0075EBF7 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88459FB92538892C0075EBF7 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		884FBD2F2545610D00441A2B /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884FBD2E2545610D00441A2B /* AuthPresenter.swift */; };
-		884FBD312545622200441A2B /* AuthAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884FBD302545622200441A2B /* AuthAssembly.swift */; };
+		8899D37A25471A2A006F5E40 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899D37925471A2A006F5E40 /* Router.swift */; };
+		8899D37C25471B4E006F5E40 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899D37B25471B4E006F5E40 /* Assembly.swift */; };
 		88BEFFE625388B4C00266DD2 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BEFFE525388B4C00266DD2 /* UIView+Extension.swift */; };
 		88BEFFE825388C5B00266DD2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BEFFE725388C5B00266DD2 /* UIColor+Extension.swift */; };
 		88C561C1253B1FD600DA701D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C561C0253B1FD600DA701D /* AuthViewController.swift */; };
@@ -51,7 +52,8 @@
 		88459FB1253882D50075EBF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88459FB92538892C0075EBF7 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		884FBD2E2545610D00441A2B /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
-		884FBD302545622200441A2B /* AuthAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAssembly.swift; sourceTree = "<group>"; };
+		8899D37925471A2A006F5E40 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		8899D37B25471B4E006F5E40 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		88BEFFE525388B4C00266DD2 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		88BEFFE725388C5B00266DD2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		88C561C0253B1FD600DA701D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,8 @@
 				88459FB7253888110075EBF7 /* Support files */,
 				88BEFFE325388ADF00266DD2 /* Auth */,
 				88459FB1253882D50075EBF7 /* Info.plist */,
+				8899D37925471A2A006F5E40 /* Router.swift */,
+				8899D37B25471B4E006F5E40 /* Assembly.swift */,
 			);
 			path = Oblique;
 			sourceTree = "<group>";
@@ -148,7 +152,6 @@
 			children = (
 				884FBD2D254560E200441A2B /* Presenter */,
 				882077042538943B002CECB3 /* View */,
-				884FBD302545622200441A2B /* AuthAssembly.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -258,9 +261,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				884FBD2F2545610D00441A2B /* AuthPresenter.swift in Sources */,
+				8899D37C25471B4E006F5E40 /* Assembly.swift in Sources */,
 				88459FA4253882D10075EBF7 /* AppDelegate.swift in Sources */,
+				8899D37A25471A2A006F5E40 /* Router.swift in Sources */,
 				88BEFFE625388B4C00266DD2 /* UIView+Extension.swift in Sources */,
-				884FBD312545622200441A2B /* AuthAssembly.swift in Sources */,
 				8818036C2543109000BDD758 /* NetworkService.swift in Sources */,
 				8820A171253F481A00F15C34 /* UITextField+Extension.swift in Sources */,
 				88C561C1253B1FD600DA701D /* AuthViewController.swift in Sources */,

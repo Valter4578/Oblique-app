@@ -9,9 +9,14 @@
 import Foundation
 import Alamofire
 
-class NetworkService {
+protocol NetService {
+    func signIn(email: String, password: String, completionHandler: @escaping (Result<String, Error>) -> Void)
+    func signUp(email: String, password: String, name: String, completionHandler: @escaping (Result<String, Error>) -> Void)
+}
+
+class NetworkService: NetService {
     // MARK:- Properties
-    let baseUrl = "http://localhost:8080"
+    private let baseUrl = "http://localhost:8080"
     
     // MARK:- Methods
     func signIn(email: String, password: String, completionHandler: @escaping (Result<String, Error>) -> Void) {

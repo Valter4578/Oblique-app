@@ -16,7 +16,7 @@ enum AuthState {
 
 class AuthViewController: UIViewController {
     // MARK:- Dependencies
-    var presenter: AuthPresenter! 
+    var presenter: AuthInput!
     // MARK:- Properties
     var authState: AuthState? = .signup {
         didSet {

@@ -17,18 +17,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oblique" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMN-nx-rdP">
-                                <rect key="frame" x="148" y="476.5" width="118" height="43"/>
+                                <rect key="frame" x="148" y="526.5" width="118" height="43"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oblique" translatesAutoresizingMaskIntoConstraints="NO" id="bt2-Ry-oG7">
-                                <rect key="frame" x="119.5" y="244.5" width="175" height="182"/>
+                                <rect key="frame" x="119.5" y="294.5" width="175" height="182"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" name="main gray"/>
                         <constraints>
-                            <constraint firstItem="TMN-nx-rdP" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="50" id="Gxb-co-GBC"/>
+                            <constraint firstItem="TMN-nx-rdP" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="100" id="Gxb-co-GBC"/>
                             <constraint firstItem="bt2-Ry-oG7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Wn6-kW-uik"/>
                             <constraint firstItem="TMN-nx-rdP" firstAttribute="top" secondItem="bt2-Ry-oG7" secondAttribute="bottom" constant="50" id="hd4-V5-m0J"/>
                             <constraint firstItem="TMN-nx-rdP" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="sED-Bi-o9e"/>

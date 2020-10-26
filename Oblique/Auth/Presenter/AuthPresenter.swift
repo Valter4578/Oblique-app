@@ -8,10 +8,18 @@
 
 import Foundation
 
-class AuthPresenter {
+protocol AuthInput {
+    var view: AuthViewController! { get set }
+    var networkService: NetService! { get set }
+    
+    func signUp(email: String, password: String, confirmPass: String, name: String)
+    func signIn(email: String, password: String)
+}
+
+class AuthPresenter: AuthInput {
     // MARK:- Dependencies
-    var view: AuthViewController! 
-    var networkService: NetworkService!
+    weak var view: AuthViewController!
+    var networkService: NetService!
     
     // MARK:- Properties
     
@@ -22,10 +30,10 @@ class AuthPresenter {
         networkService.signUp(email: email, password: password, name: name) { result in
             switch result {
             case .failure(let _):
-                self.view.didAuthentificate(token: nil)
+                break
             case .success(let token):
                 UserDefaults.standard.set(token, forKey: "token")
-                self.view.didAuthentificate(token: token)
+                
             }
         }
     }
@@ -36,10 +44,9 @@ class AuthPresenter {
         networkService.signIn(email: email, password: password) { result in
             switch result {
             case .failure(let _):
-                self.view.didAuthentificate(token: nil)
+                break
             case .success(let token):
                 UserDefaults.standard.set(token, forKey: "token")
-                self.view.didAuthentificate(token: token)
             }
         }
     }
@@ -54,7 +61,7 @@ class AuthPresenter {
         
         // check if passwords are equal
         if let confirmPassword = confirmPass {
-            guard password == confirmPass else { return false }
+            guard password == confirmPassword else { return false }
         }
         
         return true
