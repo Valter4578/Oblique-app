@@ -24,8 +24,8 @@ class AuthViewController: UIViewController {
         }
     }
     
-    // MARK:- Constraints references
-    var signButtonBottomConstraint: Constraint? = nil
+    // Shows if keyboard appeared
+    var isKeyboardAppeared: Bool = false
     
     // MARK:- Views
     let iconImageView: UIImageView = {
@@ -143,6 +143,9 @@ class AuthViewController: UIViewController {
     }
     
     @objc func keyboardWillShow( notification: Notification) {
+        guard !isKeyboardAppeared else { return }
+        self.isKeyboardAppeared.toggle()
+        
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             var newHeight: CGFloat
             let duration:TimeInterval = (notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
@@ -159,11 +162,13 @@ class AuthViewController: UIViewController {
                 print(newHeight)
                 self.iconImageView.alpha = 0
                 self.view.frame.origin.y -= newHeight
+            }, completion: { _ in
             })
         }
     }
     
     @objc func keyboardWillHide(notification: Notification) {
+        self.isKeyboardAppeared.toggle()
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             var newHeight: CGFloat
             let duration:TimeInterval = (notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
@@ -284,7 +289,7 @@ class AuthViewController: UIViewController {
             make.leading.equalTo(view).offset(25)
             make.trailing.equalTo(view).offset(-25)
             make.height.equalTo(50)
-            self.signButtonBottomConstraint = make.bottom.equalTo(signOptionLabel.snp.top).offset(-25).constraint
+            make.bottom.equalTo(signOptionLabel.snp.top).offset(-25)
         }
     }
     
