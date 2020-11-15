@@ -20,16 +20,30 @@ class AppRouter: Router {
     // MARK:- Properties
     var assembly: AssemblyBuilder?
     var navigationController: UINavigationController?
+    var tabBarController: UITabBarController?
     
     // MARK:- Methods
     func initialViewController() {
-        // TODO:- add main view controller configuration
+        tabBarController = UITabBarController()
         
+        if let tabBarController = tabBarController {
+            // TODO:- add view controllers array
+            let walletViewController = WalletViewController()
+            tabBarController.viewControllers = [navigationFor(viewController: walletViewController)]
+        }
     }
     
     func showAuth() {
-        let authViewController = assembly?.configureAuthModule(router: self)
+        guard let authViewController = assembly?.configureAuthModule(router: self) else { return }
         
+        tabBarController?.present(authViewController, animated: true, completion: nil)
+    }
+    
+    // MARK:- Private functions
+    private func navigationFor(viewController: UIViewController = UIViewController(), imageName: String? = nil) -> UINavigationController {
+        let navigationController = UINavigationController(rootViewController: viewController)
+        
+        return navigationController
     }
     
     // MARK:- Inits

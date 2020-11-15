@@ -10,6 +10,7 @@
 		8818036C2543109000BDD758 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8818036B2543109000BDD758 /* NetworkService.swift */; };
 		8818036E254312B400BDD758 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8818036D254312B400BDD758 /* Alamofire.framework */; };
 		8818036F254312B400BDD758 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8818036D254312B400BDD758 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		881DB6EB25616ED70019D5DE /* WalletBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881DB6EA25616ED70019D5DE /* WalletBottomSheetViewController.swift */; };
 		8820A171253F481A00F15C34 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8820A170253F481A00F15C34 /* UITextField+Extension.swift */; };
 		88459FA4253882D10075EBF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88459FA3253882D10075EBF7 /* AppDelegate.swift */; };
 		88459FA6253882D10075EBF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88459FA5253882D10075EBF7 /* SceneDelegate.swift */; };
@@ -20,6 +21,8 @@
 		884FBD2F2545610D00441A2B /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884FBD2E2545610D00441A2B /* AuthPresenter.swift */; };
 		8899D37A25471A2A006F5E40 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899D37925471A2A006F5E40 /* Router.swift */; };
 		8899D37C25471B4E006F5E40 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899D37B25471B4E006F5E40 /* Assembly.swift */; };
+		88BE14152553064300239F5A /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BE14142553064300239F5A /* WalletViewController.swift */; };
+		88BE14182553096B00239F5A /* WalletPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BE14172553096B00239F5A /* WalletPresenter.swift */; };
 		88BEFFE625388B4C00266DD2 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BEFFE525388B4C00266DD2 /* UIView+Extension.swift */; };
 		88BEFFE825388C5B00266DD2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BEFFE725388C5B00266DD2 /* UIColor+Extension.swift */; };
 		88C561C1253B1FD600DA701D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C561C0253B1FD600DA701D /* AuthViewController.swift */; };
@@ -43,6 +46,7 @@
 /* Begin PBXFileReference section */
 		8818036B2543109000BDD758 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8818036D254312B400BDD758 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		881DB6EA25616ED70019D5DE /* WalletBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletBottomSheetViewController.swift; sourceTree = "<group>"; };
 		8820A170253F481A00F15C34 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		88459FA0253882D10075EBF7 /* Oblique.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oblique.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88459FA3253882D10075EBF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +58,8 @@
 		884FBD2E2545610D00441A2B /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 		8899D37925471A2A006F5E40 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		8899D37B25471B4E006F5E40 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		88BE14142553064300239F5A /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
+		88BE14172553096B00239F5A /* WalletPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletPresenter.swift; sourceTree = "<group>"; };
 		88BEFFE525388B4C00266DD2 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		88BEFFE725388C5B00266DD2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		88C561C0253B1FD600DA701D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -108,10 +114,11 @@
 		88459FA2253882D10075EBF7 /* Oblique */ = {
 			isa = PBXGroup;
 			children = (
+				88BE14122553062100239F5A /* WalletModule */,
 				8818036A2543106C00BDD758 /* Service */,
 				88BEFFE425388AE600266DD2 /* Extensions */,
 				88459FB7253888110075EBF7 /* Support files */,
-				88BEFFE325388ADF00266DD2 /* Auth */,
+				88BEFFE325388ADF00266DD2 /* AuthModule */,
 				88459FB1253882D50075EBF7 /* Info.plist */,
 				8899D37925471A2A006F5E40 /* Router.swift */,
 				8899D37B25471B4E006F5E40 /* Assembly.swift */,
@@ -147,13 +154,39 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		88BEFFE325388ADF00266DD2 /* Auth */ = {
+		88BE14122553062100239F5A /* WalletModule */ = {
+			isa = PBXGroup;
+			children = (
+				88BE14162553096000239F5A /* Presenter */,
+				88BE14132553063300239F5A /* View */,
+			);
+			path = WalletModule;
+			sourceTree = "<group>";
+		};
+		88BE14132553063300239F5A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				88BE14142553064300239F5A /* WalletViewController.swift */,
+				881DB6EA25616ED70019D5DE /* WalletBottomSheetViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		88BE14162553096000239F5A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				88BE14172553096B00239F5A /* WalletPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		88BEFFE325388ADF00266DD2 /* AuthModule */ = {
 			isa = PBXGroup;
 			children = (
 				884FBD2D254560E200441A2B /* Presenter */,
 				882077042538943B002CECB3 /* View */,
 			);
-			path = Auth;
+			path = AuthModule;
 			sourceTree = "<group>";
 		};
 		88BEFFE425388AE600266DD2 /* Extensions */ = {
@@ -264,7 +297,10 @@
 				8899D37C25471B4E006F5E40 /* Assembly.swift in Sources */,
 				88459FA4253882D10075EBF7 /* AppDelegate.swift in Sources */,
 				8899D37A25471A2A006F5E40 /* Router.swift in Sources */,
+				88BE14152553064300239F5A /* WalletViewController.swift in Sources */,
+				88BE14182553096B00239F5A /* WalletPresenter.swift in Sources */,
 				88BEFFE625388B4C00266DD2 /* UIView+Extension.swift in Sources */,
+				881DB6EB25616ED70019D5DE /* WalletBottomSheetViewController.swift in Sources */,
 				8818036C2543109000BDD758 /* NetworkService.swift in Sources */,
 				8820A171253F481A00F15C34 /* UITextField+Extension.swift in Sources */,
 				88C561C1253B1FD600DA701D /* AuthViewController.swift in Sources */,

@@ -17,8 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
+        
         let assembly = Assembly()
-        window?.rootViewController = assembly.configureAuthModule(router: nil)
+        let router = AppRouter(assembly: assembly)
+        router.initialViewController()
+        window?.rootViewController = router.tabBarController
+        
         window?.makeKeyAndVisible()
     }
     

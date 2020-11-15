@@ -45,11 +45,15 @@ extension UIColor {
         return setAsHex(hex: "505050")
     }
     
+    static var mainRed: UIColor {
+        return setAsHex(hex: "FF6464")
+    }
+    
     static var textGray: UIColor {
         return setAsHex(hex: "9B9B9B")
     }
     
     static var mainBlack: UIColor {
-        return setAsHex(hex: "3A3A3A")
+        return setAsHex(hex: "252525")
     }
 }
