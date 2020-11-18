@@ -42,7 +42,6 @@ class AppRouter: Router {
     // MARK:- Private functions
     private func navigationFor(viewController: UIViewController = UIViewController(), imageName: String? = nil) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: viewController)
-        
         return navigationController
     }
     

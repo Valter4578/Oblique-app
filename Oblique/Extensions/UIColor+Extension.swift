@@ -41,6 +41,10 @@ extension UIColor {
         return setAsHex(hex: "924AED")
     }
     
+    static var additionalPurple: UIColor {
+        return setAsHex(hex: "A377FF")
+    }
+    
     static var lightFieldGray: UIColor {
         return setAsHex(hex: "505050")
     }
@@ -55,5 +59,13 @@ extension UIColor {
     
     static var mainBlack: UIColor {
         return setAsHex(hex: "252525")
+    }
+    
+    static var shadowBlack: UIColor {
+        return setAsHex(hex: "414141")
+    }
+    
+    static var shadowWhite: UIColor {
+        return setAsHex(hex: "B1B1B1")
     }
 }

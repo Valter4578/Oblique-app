@@ -15,12 +15,14 @@ enum BottomSheetState {
 
 class WalletViewController: UIViewController {
     // MARK:- View
+    let shadowContainerView = UIView()
+    let cardView = CardView()
+    
     var bottomSheetViewController: WalletBottomSheetViewController!
     
     let mainView: UIView = {
         let view = UIView()
         view.backgroundColor = .mainBlack
-        
         return view
     }()
     
@@ -30,7 +32,6 @@ class WalletViewController: UIViewController {
     
     private var runningAnimations = [UIViewPropertyAnimator]()
     private var animationProgressInterrupted: CGFloat = 0
-    
     
     // MARK:- Properties
     
@@ -42,18 +43,20 @@ class WalletViewController: UIViewController {
         navigationBackgroundView?.alpha = 0
         
         view.backgroundColor = .mainPurple
+        
+        configureBottomSheetViewController()
+        configureCardView()
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        configureBottomSheetViewController()
-        
+        shadowContainerView.addShadow(opacity: 0.25, offsets: [CGSize(width: 10, height: 10), CGSize(width: -10, height: -10)], radius: 20)
         
     }
     
     // MARK:- Configuration
-    
     private func configureBottomSheetViewController() {
         bottomSheetViewController = WalletBottomSheetViewController()
         
@@ -65,6 +68,26 @@ class WalletViewController: UIViewController {
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(sheetPanRecognizer(recognizer:)))
         bottomSheetViewController.view.addGestureRecognizer(panGestureRecognizer)
+    }
+    
+    private func configureCardView() {
+        view.addSubview(shadowContainerView)
+        cardView.layer.cornerRadius = 20
+
+        shadowContainerView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(25)
+            make.leading.equalTo(view).offset(33)
+            make.trailing.equalTo(view).offset(-33)
+            make.height.equalTo(160)
+        }
+        
+        view.addSubview(cardView)
+        cardView.snp.makeConstraints { make in
+            make.leading.equalTo(shadowContainerView)
+            make.trailing.equalTo(shadowContainerView)
+            make.top.equalTo(shadowContainerView)
+            make.bottom.equalTo(shadowContainerView)
+        }
     }
     
     
@@ -133,9 +156,7 @@ class WalletViewController: UIViewController {
             startSheetTransition()
         case .changed:
             let translation = recognizer.translation(in: self.bottomSheetViewController.view)
-//            print(translation.y.magnitude)
             var fractionComplete = translation.y / view.frame.height
-//            print(fractionComplete)
 
             switch botttomSheetState {
             case .full:
@@ -145,9 +166,7 @@ class WalletViewController: UIViewController {
                 
             }
             
-            print(fractionComplete)
             continueSheetTransition(fraction: fractionComplete)
-            
         case .ended:
             endSheetTransition()
         default:

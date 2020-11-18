@@ -18,6 +18,7 @@
 		88459FB0253882D50075EBF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88459FAE253882D50075EBF7 /* LaunchScreen.storyboard */; };
 		88459FBA2538892C0075EBF7 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88459FB92538892C0075EBF7 /* SnapKit.framework */; };
 		88459FBB2538892C0075EBF7 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88459FB92538892C0075EBF7 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		884825212563FFC500F355E0 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884825202563FFC500F355E0 /* CardView.swift */; };
 		884FBD2F2545610D00441A2B /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884FBD2E2545610D00441A2B /* AuthPresenter.swift */; };
 		8899D37A25471A2A006F5E40 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899D37925471A2A006F5E40 /* Router.swift */; };
 		8899D37C25471B4E006F5E40 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899D37B25471B4E006F5E40 /* Assembly.swift */; };
@@ -55,6 +56,7 @@
 		88459FAF253882D50075EBF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88459FB1253882D50075EBF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88459FB92538892C0075EBF7 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		884825202563FFC500F355E0 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		884FBD2E2545610D00441A2B /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 		8899D37925471A2A006F5E40 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		8899D37B25471B4E006F5E40 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			children = (
 				88BE14142553064300239F5A /* WalletViewController.swift */,
 				881DB6EA25616ED70019D5DE /* WalletBottomSheetViewController.swift */,
+				884825202563FFC500F355E0 /* CardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				884825212563FFC500F355E0 /* CardView.swift in Sources */,
 				884FBD2F2545610D00441A2B /* AuthPresenter.swift in Sources */,
 				8899D37C25471B4E006F5E40 /* Assembly.swift in Sources */,
 				88459FA4253882D10075EBF7 /* AppDelegate.swift in Sources */,
@@ -373,7 +377,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -427,7 +431,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
