@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class WalletBottomSheetViewController: UIViewController {
     
@@ -15,9 +16,8 @@ class WalletBottomSheetViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .mainBlack
-        
     }
-    
+        
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

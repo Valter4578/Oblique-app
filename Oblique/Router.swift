@@ -28,7 +28,7 @@ class AppRouter: Router {
         
         if let tabBarController = tabBarController {
             // TODO:- add view controllers array
-            let walletViewController = WalletViewController()
+            guard let walletViewController = assembly?.configureWalletModule(router: self) else { return }
             tabBarController.viewControllers = [navigationFor(viewController: walletViewController)]
         }
     }

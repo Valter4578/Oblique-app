@@ -27,6 +27,7 @@
 		88BEFFE625388B4C00266DD2 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BEFFE525388B4C00266DD2 /* UIView+Extension.swift */; };
 		88BEFFE825388C5B00266DD2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BEFFE725388C5B00266DD2 /* UIColor+Extension.swift */; };
 		88C561C1253B1FD600DA701D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C561C0253B1FD600DA701D /* AuthViewController.swift */; };
+		88FBE680256AB9EE00F2EB7F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FBE67F256AB9EE00F2EB7F /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,6 +66,7 @@
 		88BEFFE525388B4C00266DD2 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		88BEFFE725388C5B00266DD2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		88C561C0253B1FD600DA701D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		88FBE67F256AB9EE00F2EB7F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 		88459FA2253882D10075EBF7 /* Oblique */ = {
 			isa = PBXGroup;
 			children = (
+				88FBE67E256AB72C00F2EB7F /* Model */,
 				88BE14122553062100239F5A /* WalletModule */,
 				8818036A2543106C00BDD758 /* Service */,
 				88BEFFE425388AE600266DD2 /* Extensions */,
@@ -200,6 +203,14 @@
 				8820A170253F481A00F15C34 /* UITextField+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		88FBE67E256AB72C00F2EB7F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				88FBE67F256AB9EE00F2EB7F /* Card.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +314,7 @@
 				8899D37A25471A2A006F5E40 /* Router.swift in Sources */,
 				88BE14152553064300239F5A /* WalletViewController.swift in Sources */,
 				88BE14182553096B00239F5A /* WalletPresenter.swift in Sources */,
+				88FBE680256AB9EE00F2EB7F /* Card.swift in Sources */,
 				88BEFFE625388B4C00266DD2 /* UIView+Extension.swift in Sources */,
 				881DB6EB25616ED70019D5DE /* WalletBottomSheetViewController.swift in Sources */,
 				8818036C2543109000BDD758 /* NetworkService.swift in Sources */,

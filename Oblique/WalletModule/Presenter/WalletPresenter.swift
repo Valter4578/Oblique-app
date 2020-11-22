@@ -8,10 +8,35 @@
 
 import Foundation
 
-class WalletPresenter {
+protocol WalletInput {
+    var networkService: NetService! { get }
+    var wallets: [Wallet]? { get set }
+    
+    func getWallets(completionHandler: @escaping ([Wallet]) -> Void)
+}
+
+class WalletPresenter: WalletInput {
+    // MARK:- Dependencies
+    var networkService: NetService!
+    var view: WalletViewController!
+    
     // MARK:- Properties
+    var wallets: [Wallet]?
     
     // MARK:- Methods
+    func getWallets(completionHandler: @escaping ([Wallet]) -> Void) {
+        networkService.getWallets { result in
+            switch result {
+            case .success(let wallets):
+                self.wallets = wallets
+                completionHandler(wallets)
+            case .failure(let error):
+                print(error.localizedDescription)
+                return
+            }
+        }
+    }
     
     // MARK:- Private methods
+    
 }

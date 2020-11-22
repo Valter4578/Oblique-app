@@ -14,6 +14,9 @@ enum BottomSheetState {
 }
 
 class WalletViewController: UIViewController {
+    // MARK:- Dependencies
+    var presenter: WalletPresenter!
+    
     // MARK:- View
     let shadowContainerView = UIView()
     let cardView = CardView()
@@ -44,9 +47,12 @@ class WalletViewController: UIViewController {
         
         view.backgroundColor = .mainPurple
         
-        configureBottomSheetViewController()
         configureCardView()
-
+        configureBottomSheetViewController()
+        
+        presenter.getWallets { wallets in
+            print(wallets)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -139,7 +145,6 @@ class WalletViewController: UIViewController {
     private func continueSheetTransition(fraction: CGFloat) {
         runningAnimations.forEach {
             $0.fractionComplete = fraction + animationProgressInterrupted
-            print($0.fractionComplete)
         }
     }
     

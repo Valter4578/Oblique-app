@@ -12,6 +12,8 @@ import Alamofire
 protocol NetService {
     func signIn(email: String, password: String, completionHandler: @escaping (Result<String, Error>) -> Void)
     func signUp(email: String, password: String, name: String, completionHandler: @escaping (Result<String, Error>) -> Void)
+    
+    func getWallets(completionHandler: @escaping (Result<[Wallet], Error>) -> Void) 
 }
 
 class NetworkService: NetService {
@@ -61,6 +63,18 @@ class NetworkService: NetService {
                     else { return }
                     completionHandler(.success(jwtToken))
                 }
+        }
+    }
+    
+    func getWallets(completionHandler: @escaping (Result<[Wallet], Error>) -> Void) {
+        AF.request("\(baseUrl)/wallets")
+           .responseDecodable { (response: DataResponse<[Wallet], AFError>) in
+            switch response.result {
+            case .failure(let error):
+                completionHandler(.failure(error))
+            case.success(let wallets):
+                completionHandler(.success(wallets))
+            }
         }
     }
 }
