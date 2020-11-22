@@ -34,38 +34,38 @@ extension UIColor {
     
     // MARK:- Properties
     static var mainPurple: UIColor {
-        return setAsHex(hex: "7E4AED")
+        return #colorLiteral(red: 0.4941176471, green: 0.2901960784, blue: 0.9294117647, alpha: 1)
     }
     
     static var accentPurple: UIColor {
-        return setAsHex(hex: "924AED")
+        return #colorLiteral(red: 0.5725490196, green: 0.2901960784, blue: 0.9294117647, alpha: 1)
     }
     
     static var additionalPurple: UIColor {
-        return setAsHex(hex: "A377FF")
+        return #colorLiteral(red: 0.6392156863, green: 0.4666666667, blue: 1, alpha: 1)
     }
     
     static var lightFieldGray: UIColor {
-        return setAsHex(hex: "505050")
+        return #colorLiteral(red: 0.3137254902, green: 0.3137254902, blue: 0.3137254902, alpha: 1)
     }
     
     static var mainRed: UIColor {
-        return setAsHex(hex: "FF6464")
+        return #colorLiteral(red: 1, green: 0.3921568627, blue: 0.3921568627, alpha: 1)
     }
     
     static var textGray: UIColor {
-        return setAsHex(hex: "9B9B9B")
+        return #colorLiteral(red: 0.6078431373, green: 0.6078431373, blue: 0.6078431373, alpha: 1)
     }
     
     static var mainBlack: UIColor {
-        return setAsHex(hex: "252525")
+        return #colorLiteral(red: 0.1450980392, green: 0.1450980392, blue: 0.1450980392, alpha: 1)
     }
     
     static var shadowBlack: UIColor {
-        return setAsHex(hex: "414141")
+        return #colorLiteral(red: 0.2549019608, green: 0.2549019608, blue: 0.2549019608, alpha: 1)
     }
     
     static var shadowWhite: UIColor {
-        return setAsHex(hex: "B1B1B1")
+        return #colorLiteral(red: 0.6941176471, green: 0.6941176471, blue: 0.6941176471, alpha: 1)
     }
 }
