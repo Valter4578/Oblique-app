@@ -59,7 +59,6 @@ class WalletViewController: UIViewController {
         super.viewDidAppear(animated)
         
         shadowContainerView.addShadow(opacity: 0.25, offsets: [CGSize(width: 10, height: 10), CGSize(width: -10, height: -10)], radius: 20)
-        
     }
     
     // MARK:- Configuration

@@ -20,6 +20,7 @@
 		88459FBB2538892C0075EBF7 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88459FB92538892C0075EBF7 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		884825212563FFC500F355E0 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884825202563FFC500F355E0 /* CardView.swift */; };
 		884FBD2F2545610D00441A2B /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884FBD2E2545610D00441A2B /* AuthPresenter.swift */; };
+		8857A584256C0FBC00432C08 /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8857A583256C0FBC00432C08 /* KeyChainService.swift */; };
 		8899D37A25471A2A006F5E40 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899D37925471A2A006F5E40 /* Router.swift */; };
 		8899D37C25471B4E006F5E40 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899D37B25471B4E006F5E40 /* Assembly.swift */; };
 		88BE14152553064300239F5A /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BE14142553064300239F5A /* WalletViewController.swift */; };
@@ -59,6 +60,7 @@
 		88459FB92538892C0075EBF7 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		884825202563FFC500F355E0 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		884FBD2E2545610D00441A2B /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
+		8857A583256C0FBC00432C08 /* KeyChainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
 		8899D37925471A2A006F5E40 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		8899D37B25471B4E006F5E40 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		88BE14142553064300239F5A /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				8818036B2543109000BDD758 /* NetworkService.swift */,
+				8857A583256C0FBC00432C08 /* KeyChainService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				8818036C2543109000BDD758 /* NetworkService.swift in Sources */,
 				8820A171253F481A00F15C34 /* UITextField+Extension.swift in Sources */,
 				88C561C1253B1FD600DA701D /* AuthViewController.swift in Sources */,
+				8857A584256C0FBC00432C08 /* KeyChainService.swift in Sources */,
 				88459FA6253882D10075EBF7 /* SceneDelegate.swift in Sources */,
 				88BEFFE825388C5B00266DD2 /* UIColor+Extension.swift in Sources */,
 			);
