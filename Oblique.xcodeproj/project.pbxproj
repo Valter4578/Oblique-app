@@ -21,6 +21,8 @@
 		884825212563FFC500F355E0 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884825202563FFC500F355E0 /* CardView.swift */; };
 		884FBD2F2545610D00441A2B /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884FBD2E2545610D00441A2B /* AuthPresenter.swift */; };
 		8857A584256C0FBC00432C08 /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8857A583256C0FBC00432C08 /* KeyChainService.swift */; };
+		8857A589256C18D000432C08 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8857A588256C18D000432C08 /* LaunchViewController.swift */; };
+		8857A58B256C1CAD00432C08 /* LaunchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8857A58A256C1CAD00432C08 /* LaunchPresenter.swift */; };
 		8899D37A25471A2A006F5E40 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899D37925471A2A006F5E40 /* Router.swift */; };
 		8899D37C25471B4E006F5E40 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899D37B25471B4E006F5E40 /* Assembly.swift */; };
 		88BE14152553064300239F5A /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BE14142553064300239F5A /* WalletViewController.swift */; };
@@ -61,6 +63,8 @@
 		884825202563FFC500F355E0 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		884FBD2E2545610D00441A2B /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 		8857A583256C0FBC00432C08 /* KeyChainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
+		8857A588256C18D000432C08 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		8857A58A256C1CAD00432C08 /* LaunchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPresenter.swift; sourceTree = "<group>"; };
 		8899D37925471A2A006F5E40 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		8899D37B25471B4E006F5E40 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		88BE14142553064300239F5A /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
@@ -121,11 +125,12 @@
 		88459FA2253882D10075EBF7 /* Oblique */ = {
 			isa = PBXGroup;
 			children = (
+				8857A585256C185000432C08 /* LaunchModule */,
 				88FBE67E256AB72C00F2EB7F /* Model */,
-				88BE14122553062100239F5A /* WalletModule */,
-				8818036A2543106C00BDD758 /* Service */,
-				88BEFFE425388AE600266DD2 /* Extensions */,
 				88459FB7253888110075EBF7 /* Support files */,
+				88BEFFE425388AE600266DD2 /* Extensions */,
+				8818036A2543106C00BDD758 /* Service */,
+				88BE14122553062100239F5A /* WalletModule */,
 				88BEFFE325388ADF00266DD2 /* AuthModule */,
 				88459FB1253882D50075EBF7 /* Info.plist */,
 				8899D37925471A2A006F5E40 /* Router.swift */,
@@ -160,6 +165,31 @@
 				884FBD2E2545610D00441A2B /* AuthPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		8857A585256C185000432C08 /* LaunchModule */ = {
+			isa = PBXGroup;
+			children = (
+				8857A587256C187100432C08 /* View */,
+				8857A586256C186A00432C08 /* Presenter */,
+			);
+			path = LaunchModule;
+			sourceTree = "<group>";
+		};
+		8857A586256C186A00432C08 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				8857A58A256C1CAD00432C08 /* LaunchPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		8857A587256C187100432C08 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8857A588256C18D000432C08 /* LaunchViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		88BE14122553062100239F5A /* WalletModule */ = {
@@ -311,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				884825212563FFC500F355E0 /* CardView.swift in Sources */,
+				8857A589256C18D000432C08 /* LaunchViewController.swift in Sources */,
 				884FBD2F2545610D00441A2B /* AuthPresenter.swift in Sources */,
 				8899D37C25471B4E006F5E40 /* Assembly.swift in Sources */,
 				88459FA4253882D10075EBF7 /* AppDelegate.swift in Sources */,
@@ -324,6 +355,7 @@
 				8820A171253F481A00F15C34 /* UITextField+Extension.swift in Sources */,
 				88C561C1253B1FD600DA701D /* AuthViewController.swift in Sources */,
 				8857A584256C0FBC00432C08 /* KeyChainService.swift in Sources */,
+				8857A58B256C1CAD00432C08 /* LaunchPresenter.swift in Sources */,
 				88459FA6253882D10075EBF7 /* SceneDelegate.swift in Sources */,
 				88BEFFE825388C5B00266DD2 /* UIColor+Extension.swift in Sources */,
 			);

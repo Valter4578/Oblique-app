@@ -17,9 +17,10 @@ protocol WalletInput {
 
 class WalletPresenter: WalletInput {
     // MARK:- Dependencies
+    weak var view: WalletViewController!
     var networkService: NetService!
-    var view: WalletViewController!
-    
+
+    var router: Router! 
     // MARK:- Properties
     var wallets: [Wallet]?
     

@@ -21,9 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let assembly = Assembly()
         let router = AppRouter(assembly: assembly)
         router.initialViewController()
-        window?.rootViewController = router.tabBarController
-        
+        router.tabBarController = UITabBarController()
         window?.makeKeyAndVisible()
+        window?.rootViewController = router.currentController //router.tabBarController
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

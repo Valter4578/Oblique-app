@@ -21,6 +21,7 @@ class AuthPresenter: AuthInput {
     weak var view: AuthViewController!
     var networkService: NetService!
     
+    var router: Router! 
     // MARK:- Properties
     
     // MARK:- Methods
@@ -33,7 +34,7 @@ class AuthPresenter: AuthInput {
                 break
             case .success(let token):
                 UserDefaults.standard.set(token, forKey: "token")
-                
+                UserDefaults.standard.set(email, forKey: "email")
             }
         }
     }

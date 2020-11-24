@@ -14,6 +14,8 @@ protocol Router {
     
     func initialViewController()
     func showAuth()
+    func showTabBar(animated: Bool)
+    func dismissCurrent(animated: Bool) 
 }
 
 class AppRouter: Router {
@@ -21,22 +23,35 @@ class AppRouter: Router {
     var assembly: AssemblyBuilder?
     var navigationController: UINavigationController?
     var tabBarController: UITabBarController?
+    var currentController: UIViewController?
     
     // MARK:- Methods
     func initialViewController() {
-        tabBarController = UITabBarController()
-        
-        if let tabBarController = tabBarController {
-            // TODO:- add view controllers array
-            guard let walletViewController = assembly?.configureWalletModule(router: self) else { return }
-            tabBarController.viewControllers = [navigationFor(viewController: walletViewController)]
-        }
+        let launchViewController = assembly?.configureLaunchModule(router: self)
+        currentController = launchViewController
     }
     
     func showAuth() {
         guard let authViewController = assembly?.configureAuthModule(router: self) else { return }
+        authViewController.modalPresentationStyle = .fullScreen
+        currentController?.present(authViewController, animated: true, completion: nil)
+    }
+    
+    func showLaunch() {
         
-        tabBarController?.present(authViewController, animated: true, completion: nil)
+    }
+    
+    func showTabBar(animated: Bool) {
+        if let tabBarController = tabBarController {
+            guard let walletViewController = assembly?.configureWalletModule(router: self) else { return }
+            tabBarController.viewControllers = [navigationFor(viewController: walletViewController)]
+            tabBarController.modalPresentationStyle = .fullScreen
+            currentController?.present(tabBarController, animated: true)
+        }
+    }
+    
+    func dismissCurrent(animated: Bool) {
+        currentController?.dismiss(animated: animated)
     }
     
     // MARK:- Private functions
