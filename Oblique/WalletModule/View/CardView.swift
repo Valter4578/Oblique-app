@@ -92,7 +92,7 @@ class CardView: UIView {
     // MARK:- Inits
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .mainPurple
+        backgroundColor = .mainBlack
         
         configureCardNumber()
         configureAmountLabel()

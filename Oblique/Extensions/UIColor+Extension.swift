@@ -58,7 +58,7 @@ extension UIColor {
     }
     
     static var mainBlack: UIColor {
-        return #colorLiteral(red: 0.1450980392, green: 0.1450980392, blue: 0.1450980392, alpha: 1)
+        return #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1058823529, alpha: 1)
     }
     
     static var shadowBlack: UIColor {

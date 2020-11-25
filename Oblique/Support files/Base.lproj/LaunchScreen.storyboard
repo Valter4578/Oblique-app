@@ -26,7 +26,7 @@
                                 <rect key="frame" x="119.5" y="294.5" width="175" height="182"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" name="main gray"/>
+                        <color key="backgroundColor" name="Main gray"/>
                         <constraints>
                             <constraint firstItem="TMN-nx-rdP" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="100" id="Gxb-co-GBC"/>
                             <constraint firstItem="bt2-Ry-oG7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Wn6-kW-uik"/>
@@ -43,8 +43,8 @@
     </scenes>
     <resources>
         <image name="oblique" width="175" height="182"/>
-        <namedColor name="main gray">
-            <color red="0.14509803921568629" green="0.14509803921568629" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Main gray">
+            <color red="0.10980392156862745" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

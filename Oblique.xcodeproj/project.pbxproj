@@ -125,11 +125,11 @@
 		88459FA2253882D10075EBF7 /* Oblique */ = {
 			isa = PBXGroup;
 			children = (
-				8857A585256C185000432C08 /* LaunchModule */,
 				88FBE67E256AB72C00F2EB7F /* Model */,
+				8818036A2543106C00BDD758 /* Service */,
 				88459FB7253888110075EBF7 /* Support files */,
 				88BEFFE425388AE600266DD2 /* Extensions */,
-				8818036A2543106C00BDD758 /* Service */,
+				8857A585256C185000432C08 /* LaunchModule */,
 				88BE14122553062100239F5A /* WalletModule */,
 				88BEFFE325388ADF00266DD2 /* AuthModule */,
 				88459FB1253882D50075EBF7 /* Info.plist */,
@@ -231,8 +231,8 @@
 		88BEFFE425388AE600266DD2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				88BEFFE525388B4C00266DD2 /* UIView+Extension.swift */,
 				88BEFFE725388C5B00266DD2 /* UIColor+Extension.swift */,
+				88BEFFE525388B4C00266DD2 /* UIView+Extension.swift */,
 				8820A170253F481A00F15C34 /* UITextField+Extension.swift */,
 			);
 			path = Extensions;

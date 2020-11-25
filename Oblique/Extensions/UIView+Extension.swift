@@ -9,18 +9,23 @@
 import UIKit
 
 extension UIView {
-    func addShadow(colors: [UIColor] = [.shadowBlack, .shadowWhite], opacity: Float = 0.5, offsets: [CGSize], radius: CGFloat = 1) {
-        let blackLayer = CALayer()
-        blackLayer.shadowColor = colors[0].cgColor
-        blackLayer.shadowOffset = offsets[0]
+    func addShadow(colors: [UIColor?] = [.shadowBlack, .shadowWhite], opacity: Float = 0.5, offsets: [CGSize], radius: CGFloat = 10) {
+        var layers: [CALayer] = []
         
-        let whiteLayer = CALayer()
-        whiteLayer.shadowColor = colors[1].cgColor
-        whiteLayer.shadowOffset = CGSize(width: -10, height: -10)
+        if let firstColor = colors[0] {
+            let firstLayer = CALayer()
+            firstLayer.shadowColor = colors[0]?.cgColor
+            firstLayer.shadowOffset = offsets[0]
+            layers.append(firstLayer)
+        }
+        
+        if let secondColor = colors[1] {
+            let secondLayer = CALayer()
+            secondLayer.shadowColor = colors[1]?.cgColor
+            secondLayer.shadowOffset = CGSize(width: -10, height: -10)
+            layers.append(secondLayer)
+        }
 
-        
-        let layers = [blackLayer, whiteLayer]
-        
         layers.forEach {
             $0.masksToBounds = false
             $0.shadowOpacity = opacity

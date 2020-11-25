@@ -21,15 +21,6 @@ class KeyChainService {
         guard status == errSecSuccess else { return }
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
     func loadPassword(with email: String) -> String? {
         let query = [
             kSecClass: kSecClassInternetPassword,

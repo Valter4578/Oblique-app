@@ -45,23 +45,30 @@ class WalletViewController: UIViewController {
         let navigationBackgroundView = self.navigationController?.navigationBar.subviews.first
         navigationBackgroundView?.alpha = 0
         
-        view.backgroundColor = .mainPurple
-        
+        configureBackgroundGradient()
         configureCardView()
         configureBottomSheetViewController()
         
-        presenter.getWallets { wallets in
-            print(wallets)
-        }
+        presenter.getWallets()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        shadowContainerView.addShadow(opacity: 0.25, offsets: [CGSize(width: 10, height: 10), CGSize(width: -10, height: -10)], radius: 20)
+        shadowContainerView.addShadow(colors: [.black, .black], opacity: 0.25, offsets: [CGSize(width: 5, height: 5), CGSize(width: -5, height: -5)], radius: 15)
     }
+ 
     
     // MARK:- Configuration
+    private func configureBackgroundGradient() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.mainRed.cgColor, UIColor.mainPurple.cgColor]
+        gradientLayer.frame = view.bounds
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
     private func configureBottomSheetViewController() {
         bottomSheetViewController = WalletBottomSheetViewController()
         
@@ -69,7 +76,7 @@ class WalletViewController: UIViewController {
         view.addSubview(bottomSheetViewController.view)
         bottomSheetViewController.view.layer.cornerRadius = 20
         
-        bottomSheetViewController.view.frame = CGRect(x: 0, y: view.frame.maxX, width: view.frame.width, height: view.frame.height)
+        bottomSheetViewController.view.frame = CGRect(x: 0, y: view.frame.minY + 288, width: view.frame.width, height: view.frame.height)
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(sheetPanRecognizer(recognizer:)))
         bottomSheetViewController.view.addGestureRecognizer(panGestureRecognizer)
@@ -78,9 +85,9 @@ class WalletViewController: UIViewController {
     private func configureCardView() {
         view.addSubview(shadowContainerView)
         cardView.layer.cornerRadius = 20
-
+        
         shadowContainerView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(25)
+            make.top.equalTo(view.safeAreaLayoutGuide)
             make.leading.equalTo(view).offset(33)
             make.trailing.equalTo(view).offset(-33)
             make.height.equalTo(160)

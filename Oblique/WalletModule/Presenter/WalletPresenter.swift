@@ -12,7 +12,8 @@ protocol WalletInput {
     var networkService: NetService! { get }
     var wallets: [Wallet]? { get set }
     
-    func getWallets(completionHandler: @escaping ([Wallet]) -> Void)
+    func getWallets()
+    
 }
 
 class WalletPresenter: WalletInput {
@@ -25,12 +26,11 @@ class WalletPresenter: WalletInput {
     var wallets: [Wallet]?
     
     // MARK:- Methods
-    func getWallets(completionHandler: @escaping ([Wallet]) -> Void) {
+    func getWallets() {
         networkService.getWallets { result in
             switch result {
             case .success(let wallets):
                 self.wallets = wallets
-                completionHandler(wallets)
             case .failure(let error):
                 print(error.localizedDescription)
                 return
