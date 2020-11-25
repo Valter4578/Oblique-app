@@ -21,6 +21,7 @@ class Assembly: AssemblyBuilder {
         viewController.presenter = presenter
         presenter.view = viewController
         presenter.networkService = NetworkService()
+        presenter.keyChainService = KeyChainService()
         presenter.router = router
         return viewController
     }

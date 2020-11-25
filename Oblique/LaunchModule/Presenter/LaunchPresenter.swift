@@ -43,6 +43,5 @@ class LaunchPresenter: LaunchInput {
                 return
             }
         }
-        
     }
 }

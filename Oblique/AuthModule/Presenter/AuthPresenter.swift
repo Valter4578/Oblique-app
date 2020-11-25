@@ -20,6 +20,7 @@ class AuthPresenter: AuthInput {
     // MARK:- Dependencies
     weak var view: AuthViewController!
     var networkService: NetService!
+    var keyChainService: KeyChainService!
     
     var router: Router! 
     // MARK:- Properties
@@ -35,6 +36,7 @@ class AuthPresenter: AuthInput {
             case .success(let token):
                 UserDefaults.standard.set(token, forKey: "token")
                 UserDefaults.standard.set(email, forKey: "email")
+                self.keyChainService.savePassword(for: email, password: password)
             }
         }
     }
@@ -48,6 +50,8 @@ class AuthPresenter: AuthInput {
                 break
             case .success(let token):
                 UserDefaults.standard.set(token, forKey: "token")
+                UserDefaults.standard.set(email, forKey: "email")
+                self.keyChainService.savePassword(for: email, password: password)
             }
         }
     }

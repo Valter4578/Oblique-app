@@ -17,6 +17,7 @@ enum AuthState {
 class AuthViewController: UIViewController {
     // MARK:- Dependencies
     var presenter: AuthInput!
+    
     // MARK:- Properties
     var authState: AuthState? = .signup {
         didSet {
@@ -28,13 +29,6 @@ class AuthViewController: UIViewController {
     var isKeyboardAppeared: Bool = false
     
     // MARK:- Views
-    let iconImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "oblique")
-        imageView.contentMode = .scaleAspectFill
-        return imageView
-    }()
-    
     let nameTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .lightFieldGray
@@ -160,7 +154,6 @@ class AuthViewController: UIViewController {
             
             UIView.animate(withDuration: duration, delay: TimeInterval(0), options: animationCurve, animations: {
                 print(newHeight)
-                self.iconImageView.alpha = 0
                 self.view.frame.origin.y -= newHeight
             }, completion: { _ in
             })
@@ -181,7 +174,6 @@ class AuthViewController: UIViewController {
                 newHeight = keyboardFrame.cgRectValue.height
             }
             UIView.animate(withDuration: duration, delay: TimeInterval(0), options: animationCurve, animations: {
-                self.iconImageView.alpha = 1
                 self.view.frame.origin.y = 0
             })
         }
@@ -256,16 +248,16 @@ class AuthViewController: UIViewController {
         configureSignOptionLabel()
         configureSignButton()
         configureFieldsStack()
-        configureImageView()
+//        configureImageView()
     }
     
-    private func configureImageView() {
-        view.addSubview(iconImageView)
-        iconImageView.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.bottom.equalTo(fieldsStackView.snp.top).offset(-45)
-        }
-    }
+//    private func configureImageView() {
+//        view.addSubview(iconImageView)
+//        iconImageView.snp.makeConstraints { make in
+//            make.centerX.equalTo(view)
+//            make.bottom.equalTo(fieldsStackView.snp.top).offset(-45)
+//        }
+//    }
     
     private func configureFieldsStack() {
         fieldsStackView.axis = .vertical
