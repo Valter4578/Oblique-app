@@ -14,15 +14,15 @@ extension UIView {
         
         if let firstColor = colors[0] {
             let firstLayer = CALayer()
-            firstLayer.shadowColor = colors[0]?.cgColor
+            firstLayer.shadowColor = firstColor.cgColor
             firstLayer.shadowOffset = offsets[0]
             layers.append(firstLayer)
         }
         
         if let secondColor = colors[1] {
             let secondLayer = CALayer()
-            secondLayer.shadowColor = colors[1]?.cgColor
-            secondLayer.shadowOffset = CGSize(width: -10, height: -10)
+            secondLayer.shadowColor = secondColor.cgColor
+            secondLayer.shadowOffset = offsets[1]
             layers.append(secondLayer)
         }
 
