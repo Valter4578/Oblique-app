@@ -13,20 +13,27 @@ enum BottomSheetState {
     case initial
 }
 
-class WalletViewController: UIViewController {
+protocol WalletOutput: class {
+    func reloadCollection()
+}
+
+class WalletViewController: UIViewController, WalletOutput {
     // MARK:- Dependencies
     var presenter: WalletPresenter!
     
     // MARK:- View
-    let shadowContainerView = UIView()
-    let cardView = CardView()
+    private var bottomSheetViewController: WalletBottomSheetViewController!
     
-    var bottomSheetViewController: WalletBottomSheetViewController!
-    
-    let mainView: UIView = {
+    private let mainView: UIView = {
         let view = UIView()
         view.backgroundColor = .mainBlack
         return view
+    }()
+    
+    private lazy var cardsCollectionView: UICollectionView = {
+        let layout = createCollectionViewLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        return collectionView
     }()
     
     // MARK:- Private properties
@@ -36,6 +43,7 @@ class WalletViewController: UIViewController {
     private var runningAnimations = [UIViewPropertyAnimator]()
     private var animationProgressInterrupted: CGFloat = 0
     
+    private let cellIdentifier = "CardCollectionViewCell"
     // MARK:- Properties
     
     // MARK:- Lifecycle
@@ -45,19 +53,12 @@ class WalletViewController: UIViewController {
         let navigationBackgroundView = self.navigationController?.navigationBar.subviews.first
         navigationBackgroundView?.alpha = 0
         
-        configureBackgroundGradient()
-        configureCardView()
-        configureBottomSheetViewController()
-        
         presenter.getWallets()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
-        shadowContainerView.addShadow(colors: [.black, .black], opacity: 0.25, offsets: [CGSize(width: 5, height: 5), CGSize(width: -5, height: -5)], radius: 15)
+        configureBackgroundGradient()
+        configureBottomSheetViewController()
+        configureCollectionView()
     }
- 
     
     // MARK:- Configuration
     private func configureBackgroundGradient() {
@@ -82,28 +83,47 @@ class WalletViewController: UIViewController {
         bottomSheetViewController.view.addGestureRecognizer(panGestureRecognizer)
     }
     
-    private func configureCardView() {
-        view.addSubview(shadowContainerView)
-        cardView.layer.cornerRadius = 20
+    private func configureCollectionView() {
         
-        shadowContainerView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
-            make.leading.equalTo(view).offset(33)
-            make.trailing.equalTo(view).offset(-33)
-            make.height.equalTo(160)
-        }
+        cardsCollectionView.backgroundColor = .clear
         
-        view.addSubview(cardView)
-        cardView.snp.makeConstraints { make in
-            make.leading.equalTo(shadowContainerView)
-            make.trailing.equalTo(shadowContainerView)
-            make.top.equalTo(shadowContainerView)
-            make.bottom.equalTo(shadowContainerView)
+        cardsCollectionView.delegate = self
+        cardsCollectionView.dataSource = self
+        
+        cardsCollectionView.register(CardsCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        
+        view.addSubview(cardsCollectionView)
+        cardsCollectionView.snp.makeConstraints { make in
+            make.leading.equalTo(view)
+            make.trailing.equalTo(view)
+            make.top.equalTo(view.safeAreaInsets.top)
+            make.height.equalTo(225)
         }
     }
     
-    
     // MARK:- Private methods
+    private func createCollectionViewLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int,
+            layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+            let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(self.cardsCollectionView.frame.size.width - 60), heightDimension: .absolute(160))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            
+            let groupFractionalWidth = 1
+            let groupFractionalHeight: Float = 0.3
+            let groupSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(CGFloat(groupFractionalWidth)),
+                heightDimension: .fractionalWidth(CGFloat(groupFractionalHeight)))
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+            group.contentInsets = NSDirectionalEdgeInsets(top: 35, leading: 30, bottom: 5, trailing: 30)
+            
+            let section = NSCollectionLayoutSection(group: group)
+            section.orthogonalScrollingBehavior = .groupPagingCentered
+            return section
+        }
+        
+        return layout
+    }
+    
     private func startSheetTransition() {
         if runningAnimations.isEmpty {
             let frameAnimator = UIViewPropertyAnimator(duration: 0.3, dampingRatio: 1) {
@@ -122,7 +142,6 @@ class WalletViewController: UIViewController {
                 case .full: self.botttomSheetState = .initial
                 case .initial: self.botttomSheetState = .full
                 }
-                
             }
             
             frameAnimator.startAnimation()
@@ -160,6 +179,11 @@ class WalletViewController: UIViewController {
         }
     }
     
+    // MARK:- WalletOutput
+    func reloadCollection() {
+        cardsCollectionView.reloadData()
+    }
+    
     // MARK:- Selectors
     @objc func sheetPanRecognizer(recognizer: UIPanGestureRecognizer) {
         switch recognizer.state {
@@ -183,5 +207,24 @@ class WalletViewController: UIViewController {
         default:
             break
         }
+    }
+}
+
+// MARK:- UICollectionViewDelegate
+extension WalletViewController: UICollectionViewDelegate {
+    
+}
+
+// MARK:- UICollectionViewDataSource
+extension WalletViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return presenter.wallets?.count ?? 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CardsCollectionViewCell
+        cell.layer.cornerRadius = 20
+        
+        return cell
     }
 }

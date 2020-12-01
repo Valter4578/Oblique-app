@@ -8,17 +8,16 @@
 
 import Foundation
 
-protocol WalletInput {
+protocol WalletInput: class {
     var networkService: NetService! { get }
     var wallets: [Wallet]? { get set }
     
     func getWallets()
-    
 }
 
 class WalletPresenter: WalletInput {
     // MARK:- Dependencies
-    weak var view: WalletViewController!
+    weak var view: WalletOutput!
     var networkService: NetService!
 
     var router: Router! 
@@ -31,6 +30,7 @@ class WalletPresenter: WalletInput {
             switch result {
             case .success(let wallets):
                 self.wallets = wallets
+                self.view.reloadCollection()
             case .failure(let error):
                 print(error.localizedDescription)
                 return

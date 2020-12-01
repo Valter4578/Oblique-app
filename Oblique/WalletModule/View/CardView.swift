@@ -37,17 +37,15 @@ class CardView: UIView {
         return label
     }()
     
-    let cardNumberDot: UIView = {
+    lazy var cardNumberDot: UIView = {
         let view = UIView()
-        view.backgroundColor = .additionalPurple
         return view
     }()
     
     lazy var cardNumberDotsStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [cardNumberDot, cardNumberDot, cardNumberDot, cardNumberDot])
+        let stackView = UIStackView(arrangedSubviews: [.init(), .init(), .init(), .init()])
         stackView.spacing = 2
         stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
         return stackView
     }()
     

@@ -12,6 +12,7 @@
 		8818036F254312B400BDD758 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8818036D254312B400BDD758 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		881DB6EB25616ED70019D5DE /* WalletBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881DB6EA25616ED70019D5DE /* WalletBottomSheetViewController.swift */; };
 		8820A171253F481A00F15C34 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8820A170253F481A00F15C34 /* UITextField+Extension.swift */; };
+		883989F425700FEE006E9798 /* CardsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883989F325700FEE006E9798 /* CardsCollectionViewCell.swift */; };
 		88459FA4253882D10075EBF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88459FA3253882D10075EBF7 /* AppDelegate.swift */; };
 		88459FA6253882D10075EBF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88459FA5253882D10075EBF7 /* SceneDelegate.swift */; };
 		88459FAD253882D50075EBF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88459FAC253882D50075EBF7 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		8818036D254312B400BDD758 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		881DB6EA25616ED70019D5DE /* WalletBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletBottomSheetViewController.swift; sourceTree = "<group>"; };
 		8820A170253F481A00F15C34 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		883989F325700FEE006E9798 /* CardsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCollectionViewCell.swift; sourceTree = "<group>"; };
 		88459FA0253882D10075EBF7 /* Oblique.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oblique.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88459FA3253882D10075EBF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88459FA5253882D10075EBF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				88BE14142553064300239F5A /* WalletViewController.swift */,
 				881DB6EA25616ED70019D5DE /* WalletBottomSheetViewController.swift */,
 				884825202563FFC500F355E0 /* CardView.swift */,
+				883989F325700FEE006E9798 /* CardsCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				881DB6EB25616ED70019D5DE /* WalletBottomSheetViewController.swift in Sources */,
 				8818036C2543109000BDD758 /* NetworkService.swift in Sources */,
 				8820A171253F481A00F15C34 /* UITextField+Extension.swift in Sources */,
+				883989F425700FEE006E9798 /* CardsCollectionViewCell.swift in Sources */,
 				88C561C1253B1FD600DA701D /* AuthViewController.swift in Sources */,
 				8857A584256C0FBC00432C08 /* KeyChainService.swift in Sources */,
 				8857A58B256C1CAD00432C08 /* LaunchPresenter.swift in Sources */,
