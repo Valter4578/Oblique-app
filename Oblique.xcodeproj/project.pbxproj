@@ -557,6 +557,7 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+            BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 		};
 /* End XCConfigurationList section */
 	};

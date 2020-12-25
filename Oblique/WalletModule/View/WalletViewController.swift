@@ -224,6 +224,8 @@ extension WalletViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CardsCollectionViewCell
         cell.layer.cornerRadius = 20
+        cell.cardView.nameLabel.text = presenter.wallets?[indexPath.item].title
+//        cell.cardView.amountLabel.text = presenter.wallets?[indexPath.item].amount
         
         return cell
     }

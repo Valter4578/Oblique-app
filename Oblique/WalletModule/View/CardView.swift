@@ -13,7 +13,7 @@ class CardView: UIView {
     // MARK:- Properties
     
     // MARK:- Views
-    let nameLabel: UILabel = {
+    var nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Main card"
         label.font = .systemFont(ofSize: 24, weight: .semibold)
@@ -36,24 +36,36 @@ class CardView: UIView {
         label.text = "546$"
         return label
     }()
-    
-    lazy var cardNumberDot: UIView = {
-        let view = UIView()
-        return view
-    }()
-    
+//
+//    lazy var cardNumberDot: UIView = {
+//        let view = UIView()
+//        view.backgroundColor = .red
+//        return view
+//    }()
+
     lazy var cardNumberDotsStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [.init(), .init(), .init(), .init()])
+        let stackView = UIStackView()
         stackView.spacing = 2
+        stackView.distribution = .fillEqually
         stackView.axis = .horizontal
         return stackView
     }()
+//
+//    lazy var cardNumberStackView: UIStackView = {
+//        let stackView = UIStackView(arrangedSubviews: [cardNumberDotsStackView, cardNumberLabel])
+//        stackView.axis = .horizontal
+//        stackView.distribution = .fillEqually
+//        stackView.spacing = 5
+//        return stackView
+//    }()
     
-    lazy var cardNumberStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [cardNumberDotsStackView, cardNumberLabel])
+    lazy var cardNumberStackView: UIView = {
+        let stackView = UIStackView()
+        stackView.arrangedSubviews
+        stackView.spacing = 2
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
-        stackView.spacing = 5
+        stackView.backgroundColor = .purple
         return stackView
     }()
         
@@ -63,13 +75,25 @@ class CardView: UIView {
         nameLabel.snp.makeConstraints { make in
             make.top.equalTo(self).offset(25)
             make.leading.equalTo(self).offset(25)
-            make.bottom.equalTo(cardNumberStackView).offset(-15)
+//            make.bottom.equalTo(cardNumberStackView).offset(-15)
+            make.bottom.equalTo(cardNumberDotsStackView).offset(-15)
         }
     }
-    
+
     private func configureCardNumber() {
-        addSubview(cardNumberStackView)
-        cardNumberStackView.snp.makeConstraints { make in
+//        addSubview(cardNumberStackView)
+//        cardNumberStackView.snp.makeConstraints { make in
+//            make.leading.equalTo(self).offset(25)
+//        }
+        
+        let dotView = UIView()
+        dotView.backgroundColor = .red
+        for i in 0...3 {
+            cardNumberDotsStackView.addArrangedSubview(dotView)
+        }
+     
+        addSubview(cardNumberDotsStackView)
+        cardNumberDotsStackView.snp.makeConstraints { make in
             make.leading.equalTo(self).offset(25)
         }
     }
@@ -84,7 +108,8 @@ class CardView: UIView {
     
     // MARK:- Overriden methods
     override func layoutSubviews() {
-        cardNumberDotsStackView.arrangedSubviews.map { $0.layer.cornerRadius = 2.5 }
+//        cardNumberDotsStackView.arrangedSubviews.forEach { $0.layer.cornerRadius = 2.5 }
+        
     }
     
     // MARK:- Inits

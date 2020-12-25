@@ -6,9 +6,7 @@
 //  Copyright © 2020 Максим Алексеев. All rights reserved.
 //
 
-import UIKit
-
-
+import Foundation
 
 struct Wallet: Codable {
     var title: String
