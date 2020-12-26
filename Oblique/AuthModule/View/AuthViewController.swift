@@ -272,7 +272,7 @@ class AuthViewController: UIViewController {
             make.bottom.equalTo(signButton.snp.top).offset(-40)
         }
         
-        fieldsStackView.subviews.forEach(<#T##body: (UIView) throws -> Void##(UIView) throws -> Void#>) { $0.layer.cornerRadius = 17 }
+        fieldsStackView.subviews.forEach { $0.layer.cornerRadius = 17 }
     }
     
     private func configureSignButton() {

@@ -11,4 +11,6 @@ import Foundation
 struct Wallet: Codable {
     var title: String
     var colors: [String]
+    var amount: Int
+    var number: Int
 }
