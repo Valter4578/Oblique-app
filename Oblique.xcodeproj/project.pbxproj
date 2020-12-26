@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		880257AE2597649000915542 /* DotPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880257AD2597649000915542 /* DotPageControl.swift */; };
 		8818036C2543109000BDD758 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8818036B2543109000BDD758 /* NetworkService.swift */; };
 		8818036E254312B400BDD758 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8818036D254312B400BDD758 /* Alamofire.framework */; };
 		8818036F254312B400BDD758 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8818036D254312B400BDD758 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -50,6 +51,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		880257AD2597649000915542 /* DotPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotPageControl.swift; sourceTree = "<group>"; };
 		8818036B2543109000BDD758 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8818036D254312B400BDD758 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		881DB6EA25616ED70019D5DE /* WalletBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletBottomSheetViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		880257AB2597646E00915542 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				880257AC2597648200915542 /* Elements */,
+				88BEFFE425388AE600266DD2 /* Extensions */,
+				8818036A2543106C00BDD758 /* Service */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		880257AC2597648200915542 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				880257AD2597649000915542 /* DotPageControl.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
 		8818036A2543106C00BDD758 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,10 +147,9 @@
 		88459FA2253882D10075EBF7 /* Oblique */ = {
 			isa = PBXGroup;
 			children = (
+				880257AB2597646E00915542 /* Helpers */,
 				88FBE67E256AB72C00F2EB7F /* Model */,
-				8818036A2543106C00BDD758 /* Service */,
 				88459FB7253888110075EBF7 /* Support files */,
-				88BEFFE425388AE600266DD2 /* Extensions */,
 				8857A585256C185000432C08 /* LaunchModule */,
 				88BE14122553062100239F5A /* WalletModule */,
 				88BEFFE325388ADF00266DD2 /* AuthModule */,
@@ -353,6 +372,7 @@
 				88BE14182553096B00239F5A /* WalletPresenter.swift in Sources */,
 				88FBE680256AB9EE00F2EB7F /* Card.swift in Sources */,
 				88BEFFE625388B4C00266DD2 /* UIView+Extension.swift in Sources */,
+				880257AE2597649000915542 /* DotPageControl.swift in Sources */,
 				881DB6EB25616ED70019D5DE /* WalletBottomSheetViewController.swift in Sources */,
 				8818036C2543109000BDD758 /* NetworkService.swift in Sources */,
 				8820A171253F481A00F15C34 /* UITextField+Extension.swift in Sources */,
@@ -557,7 +577,6 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
-            BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 		};
 /* End XCConfigurationList section */
 	};
