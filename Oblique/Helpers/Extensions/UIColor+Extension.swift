@@ -68,4 +68,12 @@ extension UIColor {
     static var shadowWhite: UIColor {
         return #colorLiteral(red: 0.6941176471, green: 0.6941176471, blue: 0.6941176471, alpha: 1)
     }
+    
+    static var transparentRed: UIColor {
+        return #colorLiteral(red: 1, green: 0.3921568627, blue: 0.3921568627, alpha: 0.5)
+    }
+    
+    static var transparentPurple: UIColor {
+        return #colorLiteral(red: 0.6392156863, green: 0.4666666667, blue: 1, alpha: 0.25)
+    }
 }
