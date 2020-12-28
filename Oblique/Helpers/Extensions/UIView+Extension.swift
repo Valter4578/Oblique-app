@@ -34,10 +34,8 @@ extension UIView {
             $0.shouldRasterize = true
             $0.rasterizationScale = 1
             
-//            self.layer.sublayers = nil
             self.layer.addSublayer($0)
             $0.zPosition = -1
         }
     }
 }
-

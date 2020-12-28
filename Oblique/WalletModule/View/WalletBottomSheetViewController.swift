@@ -18,7 +18,6 @@ class WalletBottomSheetViewController: UIViewController {
         view.backgroundColor = .mainBlack
     }
         
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 

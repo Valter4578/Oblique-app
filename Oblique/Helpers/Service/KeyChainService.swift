@@ -11,8 +11,8 @@ import Foundation
 class KeyChainService {
     func savePassword(for email: String, password: String) {
         let server = "localhost:8080"
-        let password = password.data(using: String.Encoding.utf8)
-        var query: [String: Any] = [kSecClass as String: kSecClassInternetPassword,
+        guard let password = password.data(using: String.Encoding.utf8) else { return }
+        let query: [String: Any] = [kSecClass as String: kSecClassInternetPassword,
                                     kSecAttrAccount as String: email,
                                     kSecAttrServer as String: server,
                                     kSecValueData as String: password]

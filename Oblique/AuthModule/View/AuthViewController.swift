@@ -163,16 +163,11 @@ class AuthViewController: UIViewController {
     @objc func keyboardWillHide(notification: Notification) {
         self.isKeyboardAppeared.toggle()
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            var newHeight: CGFloat
             let duration:TimeInterval = (notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
             let animationCurveRawNSN = notification.userInfo![UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
             let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
             let animationCurve: UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
-            if #available(iOS 11.0, *) {
-                newHeight = keyboardFrame.cgRectValue.height - self.view.safeAreaInsets.bottom
-            } else {
-                newHeight = keyboardFrame.cgRectValue.height
-            }
+
             UIView.animate(withDuration: duration, delay: TimeInterval(0), options: animationCurve, animations: {
                 self.view.frame.origin.y = 0
             })

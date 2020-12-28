@@ -248,9 +248,6 @@ extension WalletViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CardsCollectionViewCell
         
-        cell.layer.cornerRadius = 20
-        cell.addShadow(colors: [.black, .black], opacity: 0.25, offsets: [CGSize(width: -5, height: -5), CGSize(width: 5, height: 5)], radius: 10)
-
         if let wallets = presenter.wallets {
             cell.cardView.nameLabel.text = wallets[indexPath.item].title
             cell.cardView.amountLabel.text = "\(wallets[indexPath.item].amount)$"
