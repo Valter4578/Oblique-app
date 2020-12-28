@@ -31,7 +31,7 @@ class AuthPresenter: AuthInput {
         
         networkService.signUp(email: email, password: password, name: name) { result in
             switch result {
-            case .failure(let _):
+            case .failure( _):
                 break
             case .success(let token):
                 UserDefaults.standard.set(token, forKey: "token")
@@ -46,7 +46,7 @@ class AuthPresenter: AuthInput {
         
         networkService.signIn(email: email, password: password) { result in
             switch result {
-            case .failure(let _):
+            case .failure( _):
                 break
             case .success(let token):
                 UserDefaults.standard.set(token, forKey: "token")

@@ -26,13 +26,14 @@ class CardsCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         
         cardView.layer.cornerRadius = 20
-        addShadow(colors: [.black, .black], opacity: 0.25, offsets: [CGSize(width: -5, height: -5), CGSize(width: 5, height: 5)], radius: 15)
     }
     
     // MARK:- Inits
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        addShadow(colors: [.black, .black], opacity: 0.45, offsets: [CGSize(width: -5, height: -5), CGSize(width: 5, height: 5)], radius: 10)
+
         configureCardView()
     }
     

@@ -36,6 +36,15 @@ class WalletViewController: UIViewController, WalletOutput {
         return collectionView
     }()
     
+    private lazy var pageControl: UIPageControl = {
+        let pageControl = UIPageControl()
+        pageControl.currentPage = 0
+        pageControl.hidesForSinglePage = true
+        pageControl.pageIndicatorTintColor = .transparentPurple
+        pageControl.currentPageIndicatorTintColor = .transparentRed
+        return pageControl
+    }()
+    
     // MARK:- Private properties
     private var botttomSheetState: BottomSheetState = .initial
     private let sheetHeight: CGFloat = UIScreen.main.bounds.height - 233
@@ -44,6 +53,7 @@ class WalletViewController: UIViewController, WalletOutput {
     private var animationProgressInterrupted: CGFloat = 0
     
     private let cellIdentifier = "CardCollectionViewCell"
+    
     // MARK:- Properties
     
     // MARK:- Lifecycle
@@ -58,6 +68,7 @@ class WalletViewController: UIViewController, WalletOutput {
         configureBackgroundGradient()
         configureBottomSheetViewController()
         configureCollectionView()
+        configurePageControl()
     }
     
     // MARK:- Configuration
@@ -84,7 +95,6 @@ class WalletViewController: UIViewController, WalletOutput {
     }
     
     private func configureCollectionView() {
-        
         cardsCollectionView.backgroundColor = .clear
         
         cardsCollectionView.delegate = self
@@ -98,6 +108,16 @@ class WalletViewController: UIViewController, WalletOutput {
             make.trailing.equalTo(view)
             make.top.equalTo(view.safeAreaInsets.top)
             make.height.equalTo(225)
+        }
+    }
+    
+    private func configurePageControl() {
+        view.addSubview(pageControl)
+        
+        pageControl.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(cardsCollectionView.snp.bottom).offset(15)
+            make.height.equalTo(7)
         }
     }
     
@@ -212,18 +232,21 @@ class WalletViewController: UIViewController, WalletOutput {
 
 // MARK:- UICollectionViewDelegate
 extension WalletViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        pageControl.currentPage = indexPath.item
+    }
 }
 
 // MARK:- UICollectionViewDataSource
 extension WalletViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter.wallets?.count ?? 1
+        let count = presenter.wallets?.count ?? 1
+        pageControl.numberOfPages = count
+        return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CardsCollectionViewCell
-        cell.layer.cornerRadius = 20
         
         if let wallets = presenter.wallets {
             cell.cardView.nameLabel.text = wallets[indexPath.item].title
