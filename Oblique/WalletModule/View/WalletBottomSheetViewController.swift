@@ -10,6 +10,9 @@ import UIKit
 import SnapKit
 
 class WalletBottomSheetViewController: UIViewController {
+    // MARK:- Properties
+    
+    // MARK:- Views
     
     // MARK:- Lifecycle
     override func viewDidLoad() {
@@ -24,6 +27,7 @@ class WalletBottomSheetViewController: UIViewController {
     }
 
     // MARK:- Configuration
+
     
     // MARK:- Selectors
     
